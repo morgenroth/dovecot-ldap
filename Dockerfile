@@ -27,10 +27,19 @@ RUN apt-get update && apt-get install -y \
 	dovecot-ldap \
 	dovecot-sieve \
 	dovecot-managesieved \
+	dovecot-antispam \
+	curl \
 && rm -rf /var/lib/apt/lists/*
 
 # Add default conf
 ADD default_conf /etc/dovecot
+
+# add rspamd-pipe script
+ADD rspamd-pipe /usr/local/bin/rspamd-pipe
+RUN chmod +x /usr/local/bin/rspamd-pipe
+
+# add to external group: ssl-cert (115)
+RUN groupadd -g 115 ssl-cert-ex; usermod -a -G ssl-cert-ex dovecot
 
 # Setup startup script
 ADD entrypoint.sh /entrypoint.sh
