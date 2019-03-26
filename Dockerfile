@@ -1,5 +1,5 @@
-From debian:jessie
-MAINTAINER Timothée Eid <timothee.eid@erizo.fr>
+FROM ubuntu:bionic
+MAINTAINER Johannes Morgenroth <jm@m-network.de>
 
 # Set noninteractive mode for apt-get
 ENV DEBIAN_FRONTEND noninteractive
