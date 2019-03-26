@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
 	dovecot-sieve \
 	dovecot-managesieved \
 	dovecot-antispam \
+	dovecot-solr \
 	curl \
 && rm -rf /var/lib/apt/lists/*
 
